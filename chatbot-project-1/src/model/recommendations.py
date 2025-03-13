@@ -33,7 +33,7 @@ class RecommendationModel:
         except Exception as e:
             print(f"❌ Error en la recomendación: {e}")
             return pd.DataFrame()
-compras_path = 'Script/data/ventas.csv'
-productos_path = 'Script/data/productos.csv'
+compras_path = 'chatbot-project-1/src/data/ventas.csv'
+productos_path = 'chatbot-project-1/src/data/productos.csv'
 modelo = RecommendationModel(compras_path, productos_path)
 recomendaciones = modelo.recommend(n=5)
