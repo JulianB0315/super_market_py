@@ -1,0 +1,13 @@
+command,response,keywords,required_words,single_response
+hola,"¡Hola! ¿Cómo puedo ayudarte hoy?",hola,,True
+adios,"¡Adiós! Que tengas un buen día.",adios,,True
+help,"Aquí están los comandos que puedes usar: hola, adios, ayuda",help,,True
+ubicacion,"Estamos en Senati Chiclayo","ubicados direccion donde ubicacion por donde queda donde estan",,True
+gracias,"¡De nada! ¿En qué más puedo ayudarte?",gracias,,True
+nombre,"Mi nombre es ChatBot","como te llamas cual es tu nombre nombre",,True
+hora,"No tengo un reloj, pero puedes verificar la hora en tu dispositivo.","hora tiempo que hora es",,True
+clima,"No tengo acceso a información meteorológica, pero puedes verificar el clima en tu dispositivo.","clima tiempo meteorologia",,True
+comida,"No tengo información sobre restaurantes, pero puedes buscar en tu dispositivo.","comida restaurante donde comer",,True
+edad,"Soy un programa de computadora, no tengo edad.","edad cuantos años tienes",,True
+chiste,"¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.","chiste broma",,True
+musica,"No puedo reproducir música, pero puedes escucharla en tu dispositivo.","musica cancion",,True
