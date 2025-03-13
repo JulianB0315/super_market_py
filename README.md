@@ -1,42 +1,59 @@
-# Chatbot Project
+# Super Market Py
 
-Este proyecto es un chatbot simple desarrollado en Python. El chatbot está diseñado para recibir mensajes y responder de manera adecuada utilizando un conjunto de respuestas predefinidas.
+## Descripción
 
-## Estructura del Proyecto
+Super Market Py es una aplicación diseñada para gestionar las operaciones de un supermercado. Permite realizar un seguimiento de inventarios, ventas, y clientes de manera eficiente y organizada.
 
-```
-chatbot-project
-├── src
-│   ├── main.py          # Punto de entrada de la aplicación
-│   ├── bot
-│   │   ├── __init__.py  # Paquete del bot
-│   │   ├── handlers.py   # Manejo de mensajes
-│   │   └── responses.py  # Respuestas predefinidas
-│   └── utils
-│       └── __init__.py  # Paquete de utilidades
-├── requirements.txt      # Dependencias del proyecto
-└── README.md             # Documentación del proyecto
-```
+## Características
 
-## Requisitos
+- **Gestión de Inventarios**: Permite agregar, actualizar y eliminar productos del inventario.
+- **Gestión de Ventas**: Registra las ventas realizadas, incluyendo detalles como productos vendidos, cantidades y precios.
+- **Gestión de Clientes**: Mantiene un registro de los clientes, incluyendo información de contacto y historial de compras.
+- **Reportes**: Genera reportes detallados sobre ventas, inventarios y clientes.
 
-Asegúrate de tener Python instalado en tu sistema. Este proyecto utiliza las siguientes dependencias:
+## Instalación
 
-- flask
-- requests
+Para instalar y ejecutar el proyecto localmente, sigue estos pasos:
 
-Puedes instalar las dependencias ejecutando:
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/tu_usuario/super_market_py.git
+    ```
+2. Navega al directorio del proyecto:
+    ```bash
+    cd super_market_py
+    ```
+3. Instala las dependencias necesarias:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-```
-pip install -r requirements.txt
-```
+## Uso
 
-## Ejecución
-
-Para ejecutar el chatbot, utiliza el siguiente comando:
-
-```
-python src/main.py
+Para iniciar la aplicación, ejecuta el siguiente comando:
+```bash
+python main.py
 ```
 
-Esto iniciará el chatbot y comenzará a recibir mensajes.
+## Contribución
+
+Si deseas contribuir al proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama con tu característica o corrección de errores:
+    ```bash
+    git checkout -b mi-nueva-rama
+    ```
+3. Realiza tus cambios y haz commit:
+    ```bash
+    git commit -m "Descripción de mis cambios"
+    ```
+4. Sube tus cambios a tu repositorio fork:
+    ```bash
+    git push origin mi-nueva-rama
+    ```
+5. Abre un Pull Request en el repositorio original.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
