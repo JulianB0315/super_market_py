@@ -1,0 +1,101 @@
+id,nombre,precio,categoria,descuento,puntuacion,personas
+1,Arroz,5.99,Alimentos,0.10,4.5,100
+2,Manzana,3.49,Frutas,0.05,4.7,90
+3,Plátano,2.99,Frutas,0.10,4.6,85
+4,Pollo,25.99,Carnes,0.15,4.3,60
+5,Arroz Integral,8.99,Alimentos,0.10,4.1,70
+6,Manzana Roja,3.49,Frutas,0.05,4.7,90
+7,Plátano,2.99,Frutas,0.10,4.6,85
+8,Pollo Entero,25.99,Carnes,0.15,4.3,60
+9,Carne Molida,19.99,Carnes,0.20,4.0,50
+10,Salmon,35.99,Pescados,0.10,4.8,40
+11,Atún en Lata,5.99,Pescados,0.05,4.2,75
+12,Lechuga,1.99,Vegetales,0.10,4.5,100
+13,Zanahoria,2.49,Vegetales,0.05,4.6,95
+14,Tomate,3.99,Vegetales,0.10,4.4,85
+15,Brócoli,4.99,Vegetales,0.15,4.3,80
+16,Papas,3.99,Vegetales,0.20,4.1,70
+17,Espinaca,2.99,Vegetales,0.10,4.7,90
+18,Leche Entera,8.49,Alimentos,0.05,4.0,60
+19,Yogur Natural,6.99,Alimentos,0.10,4.2,50
+20,Queso Cheddar,12.99,Alimentos,0.15,4.5,40
+21,Huevos,5.49,Alimentos,0.20,4.6,100
+22,Mantequilla,7.99,Alimentos,0.10,4.3,80
+23,Pan Blanco,9.99,Alimentos,0.05,4.1,70
+24,Cereal,14.99,Alimentos,0.10,4.4,60
+25,Avena,6.49,Alimentos,0.15,4.5,50
+26,Azúcar,4.99,Alimentos,0.20,4.0,40
+27,Sal,1.99,Alimentos,0.10,4.2,100
+28,Pimienta,3.49,Alimentos,0.05,4.3,90
+29,Aceite de Oliva,15.99,Alimentos,0.10,4.6,80
+30,Harina,3.99,Alimentos,0.15,4.1,70
+31,Polvo de Hornear,2.49,Alimentos,0.20,4.0,60
+32,Levadura,1.99,Alimentos,0.10,4.5,50
+33,Chocolate,9.99,Alimentos,0.05,4.7,40
+34,Galletas,5.99,Alimentos,0.10,4.4,100
+35,Helado,12.49,Alimentos,0.15,4.6,80
+36,Refresco,8.99,Bebidas,0.20,4.1,70
+37,Café,14.99,Bebidas,0.10,4.3,60
+38,Té,7.49,Bebidas,0.05,4.2,50
+39,Cerveza,18.99,Bebidas,0.10,4.5,40
+40,Vino Tinto,25.99,Bebidas,0.15,4.6,100
+41,Vino Blanco,24.99,Bebidas,0.20,4.4,80
+42,Whisky,45.99,Bebidas,0.10,4.7,70
+43,Vodka,35.99,Bebidas,0.05,4.1,60
+44,Ron,29.99,Bebidas,0.10,4.3,50
+45,Ginebra,39.99,Bebidas,0.15,4.2,40
+46,Champaña,55.99,Bebidas,0.20,4.6,100
+47,Agua Mineral,4.99,Bebidas,0.10,4.5,80
+48,Agua Purificada,3.99,Bebidas,0.05,4.4,70
+49,Jugo de Manzana,12.49,Bebidas,0.10,4.3,60
+50,Jugo de Uva,13.99,Bebidas,0.15,4.2,50
+51,Detergente en Polvo,10.99,Hogar,0.20,4.1,40
+52,Suavizante,8.99,Hogar,0.10,4.5,100
+53,Limpiador Multiusos,7.49,Hogar,0.05,4.6,80
+54,Desinfectante,9.99,Hogar,0.10,4.4,70
+55,Toallas de Papel,6.99,Hogar,0.15,4.3,60
+56,Servilletas,3.99,Hogar,0.20,4.2,50
+57,Paños de Cocina,5.49,Hogar,0.10,4.1,40
+58,Esponjas,2.99,Hogar,0.05,4.5,100
+59,Guantes de Látex,4.49,Hogar,0.10,4.6,80
+60,Trapos de Limpieza,3.49,Hogar,0.15,4.4,70
+61,Shampoo,12.99,Higiene,0.20,4.3,60
+62,Acondicionador,11.99,Higiene,0.10,4.2,50
+63,Jabón Líquido,6.99,Higiene,0.05,4.1,40
+64,Jabón en Barra,4.99,Higiene,0.10,4.5,100
+65,Crema Dental,5.99,Higiene,0.15,4.6,80
+66,Enjuague Bucal,7.99,Higiene,0.20,4.4,70
+67,Desodorante,8.49,Higiene,0.10,4.3,60
+68,Loción Corporal,9.99,Higiene,0.05,4.2,50
+69,Protector Solar,14.99,Higiene,0.10,4.1,40
+70,Maquillaje,19.99,Higiene,0.15,4.5,100
+71,Toallas Femeninas,6.49,Higiene,0.20,4.6,80
+72,Pañales,25.99,Higiene,0.10,4.4,70
+73,Papel Higiénico,12.49,Higiene,0.05,4.3,60
+74,Toallitas Húmedas,8.99,Higiene,0.10,4.2,50
+75,Champú para Bebé,7.49,Higiene,0.15,4.1,40
+76,Crema para Bebé,6.99,Higiene,0.20,4.5,100
+77,Leche en Polvo,18.99,Alimentos,0.10,4.6,80
+78,Compota de Frutas,5.49,Alimentos,0.05,4.4,70
+79,Puré de Papas,4.99,Alimentos,0.10,4.3,60
+80,Sopa Instantánea,3.99,Alimentos,0.15,4.2,50
+81,Pasta,7.99,Alimentos,0.20,4.1,40
+82,Salsa de Tomate,6.49,Alimentos,0.10,4.5,100
+83,Mayonesa,5.99,Alimentos,0.05,4.6,80
+84,Mostaza,4.49,Alimentos,0.10,4.4,70
+85,Ketchup,3.99,Alimentos,0.15,4.3,60
+86,Salsa de Soya,2.99,Alimentos,0.20,4.2,50
+87,Vinagre,1.99,Alimentos,0.10,4.1,40
+88,Especias,3.49,Alimentos,0.05,4.5,100
+89,Hierbas,2.49,Alimentos,0.10,4.6,80
+90,Frijoles,4.99,Alimentos,0.15,4.4,70
+91,Lentejas,3.99,Alimentos,0.20,4.3,60
+92,Garbanzo,2.99,Alimentos,0.10,4.2,50
+93,Chícharos,1.99,Alimentos,0.05,4.1,40
+94,Maíz,3.49,Alimentos,0.10,4.5,100
+95,Almendras,12.99,Alimentos,0.15,4.6,80
+96,Nueces,14.99,Alimentos,0.20,4.4,70
+97,Pasas,5.49,Alimentos,0.10,4.3,60
+98,Arándanos,6.99,Alimentos,0.05,4.2,50
+99,Ciruelas,7.49,Alimentos,0.10,4.1,40
+100,Dátiles,8.99,Alimentos,0.15,4.5,100
