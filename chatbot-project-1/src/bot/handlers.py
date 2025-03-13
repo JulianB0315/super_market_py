@@ -15,8 +15,13 @@ class MessageHandler:
             "No estoy seguro de cómo responder a eso.",
             "Podrías intentar preguntar de otra manera."
         ]
+        self.user_logged_in = False
+        self.current_user = None
 
     def handle_message(self, message):
+        if not self.user_logged_in:
+            return self.login(message)
+        
         cleaned_message = self._clean_message(message)
         for _, response in self.responses.iterrows():
             if self._message_matches(cleaned_message, response):
@@ -41,3 +46,14 @@ class MessageHandler:
 
     def response_positive(self):
         return random.choice(self.positive_responses)
+
+    def login(self, message):
+        users = pd.read_csv('chatbot-project-1/src/data/usuarios.csv')
+        email, password = message.split(',')
+        user = users[(users['correo'] == email.strip()) & (users['contraseña'] == password.strip())]
+        if not user.empty:
+            self.user_logged_in = True
+            self.current_user = user.iloc[0]
+            return f"Bienvenido {self.current_user['nombres']} {self.current_user['apellidos']}!"
+        else:
+            return "Credenciales incorrectas. Por favor, intente de nuevo."

@@ -1,7 +1,7 @@
 command,response,keywords,required_words,single_response
 hola,"¡Hola! ¿Cómo puedo ayudarte hoy?",hola,,True
 adios,"¡Adiós! Que tengas un buen día.",adios,,True
-help,"Aquí están los comandos que puedes usar: hola, adios, ayuda",help,,True
+help,"Aquí están los comandos que puedes usar: recomendaciones, comprar, ver compras, salir",help,,True
 ubicacion,"Estamos en Senati Chiclayo","ubicados direccion donde ubicacion por donde queda donde estan",,True
 gracias,"¡De nada! ¿En qué más puedo ayudarte?",gracias,,True
 nombre,"Mi nombre es ChatBot","como te llamas cual es tu nombre nombre",,True
@@ -11,3 +11,7 @@ comida,"No tengo información sobre restaurantes, pero puedes buscar en tu dispo
 edad,"Soy un programa de computadora, no tengo edad.","edad cuantos años tienes",,True
 chiste,"¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.","chiste broma",,True
 musica,"No puedo reproducir música, pero puedes escucharla en tu dispositivo.","musica cancion",,True
+recomendaciones,"Te recomiendo los siguientes productos: Manzana, Pollo, Leche Entera.","recomendaciones,,True
+comprar,"¿Qué producto deseas comprar?","comprar,,True
+ver compras,"Aquí están tus compras recientes: Manzana, Pollo.","ver compras,,True
+salir,"¡Hasta luego!","salir,,True
