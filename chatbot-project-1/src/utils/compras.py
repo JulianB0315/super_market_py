@@ -13,3 +13,6 @@ def products_by_categorie(categoria):
     if productos_categoria.empty:
         return None
     return productos_categoria
+
+def show_all_products():
+    return productos
