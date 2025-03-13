@@ -51,17 +51,15 @@ class MenuApp:
         self.frame = ctk.CTkFrame(self.root)
         self.frame.pack(expand=True, padx=20, pady=20)
 
-        self.text_area = ctk.CTkTextbox(self.frame, height=200, width=350, font=("Arial", 12))
-        self.text_area.pack(pady=10)
+        ctk.CTkLabel(self.frame, text="Bienvenido al Supermercado", font=("Arial", 16)).pack(pady=10)
 
-        self.print_to_menu("Bienvenido al Supermercado")
-        opciones = ["1️⃣. Opción 1", "2️⃣. Opción 2", "3️⃣. Opción 3", 
-                    "4️⃣. Opción 4", "5️⃣. Opción 5", "6️⃣. Opción 6"]
+        opciones = ["Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5", "Opción 6"]
         for opcion in opciones:
-            self.print_to_menu(opcion)
+            button = ctk.CTkButton(self.frame, text=opcion, command=lambda opt=opcion: self.opcion_seleccionada(opt))
+            button.pack(pady=5)
 
-    def print_to_menu(self, text):
-        self.text_area.insert("end", text + '\n')
+    def opcion_seleccionada(self, opcion):
+        messagebox.showinfo("Opción seleccionada", f"Has seleccionado {opcion}")
 
 def open_menu():
     menu_root = ctk.CTk()
