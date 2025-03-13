@@ -1,6 +1,8 @@
 import re
 import random
 import pandas as pd
+from utils.compras import show_categories, products_by_categorie
+from model.recommendations import RecommendationModel
 
 class MessageHandler:
     def __init__(self, csv_file='chatbot-project-1/src/bot/responses.csv'):
@@ -17,12 +19,18 @@ class MessageHandler:
         ]
         self.user_logged_in = False
         self.current_user = None
+        self.recommendation_model = RecommendationModel('chatbot-project-1/src/data/ventas.csv', 'chatbot-project-1/src/data/productos.csv')
 
     def handle_message(self, message):
         if not self.user_logged_in:
             return self.login(message)
         
         cleaned_message = self._clean_message(message)
+        if "compras" in cleaned_message:
+            return self.handle_compras(cleaned_message)
+        elif "recomendaciones" in cleaned_message:
+            return self.handle_recommendations()
+        
         for _, response in self.responses.iterrows():
             if self._message_matches(cleaned_message, response):
                 return response["response"]
@@ -57,3 +65,24 @@ class MessageHandler:
             return f"Bienvenido {self.current_user['nombres']} {self.current_user['apellidos']}!"
         else:
             return "Credenciales incorrectas. Por favor, intente de nuevo."
+
+    def handle_compras(self, message):
+        category = message.split("compras", 1)[1].strip()
+        if not category:
+            return "Por favor, especifica una categoría. Ejemplo: compras alimentos"
+        
+        productos_categoria = products_by_categorie(category)
+        if productos_categoria is None or productos_categoria.empty:
+            return f"No se encontraron productos en la categoría {category}."
+        
+        response = f"Productos en la categoría {category}:\n"
+        for i, row in productos_categoria.iterrows():
+            response += f"🔸 {row['nombre']} | 💰 {row['precio']} | ⭐ {row['puntuacion']}/5\n"
+        return response
+
+    def handle_recommendations(self):
+        recomendaciones = self.recommendation_model.recommend(n=5)
+        response = "Te recomiendo los siguientes productos:\n"
+        for _, row in recomendaciones.iterrows():
+            response += f"🔸 {row['nombre']} | 💰 {row['precio']} | {row['etiqueta']}\n"
+        return response
