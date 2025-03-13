@@ -22,6 +22,14 @@ class ChatBotApp:
         self.send_button = tk.Button(root, text="Enviar", command=self.send_message, bg="#7289DA", fg="white", font=("Helvetica", 14))
         self.send_button.grid(row=1, column=1, padx=10, pady=10)
         
+        self.show_login()
+
+    def show_login(self):
+        self.chat_log.config(state='normal')
+        self.chat_log.insert(tk.END, "Por favor, inicie sesión con su correo y contraseña separados por una coma.\n", "bot")
+        self.chat_log.config(state='disabled')
+        self.chat_log.yview(tk.END)
+
     def send_message(self, event=None):
         user_input = self.entry_box.get()
         if user_input.lower() in ["salir", "adiós"]:
