@@ -56,10 +56,3 @@ modelo = RecommendationModel(compras_path, productos_path)
 
 # Entrenar el modelo
 modelo.train()
-
-# Obtener recomendaciones para un usuario específico
-user_id = 1  # Cambia esto por el ID del usuario que deseas probar
-recomendaciones = modelo.recommend(user_id, n=5)
-
-# Mostrar las recomendaciones
-print(recomendaciones)
