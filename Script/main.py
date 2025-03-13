@@ -40,6 +40,7 @@ class LoginApp:
                     user_id = user_row.iloc[0]['id']
                     self.root.destroy()
                     open_menu(user_id)
+                else:
                     messagebox.showerror("Error", "Contraseña incorrecta")
             else:
                 messagebox.showerror("Error", "Usuario no encontrado")
