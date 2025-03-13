@@ -1,7 +1,7 @@
 import re
 import random
 import pandas as pd
-from utils.compras import show_categories, products_by_categorie
+from utils.compras import show_categories, products_by_categorie, show_all_products
 from model.recommendations import RecommendationModel
 
 class MessageHandler:
@@ -20,6 +20,7 @@ class MessageHandler:
         self.user_logged_in = False
         self.current_user = None
         self.recommendation_model = RecommendationModel('chatbot-project-1/src/data/ventas.csv', 'chatbot-project-1/src/data/productos.csv')
+        self.ventas = pd.read_csv('chatbot-project-1/src/data/ventas.csv')
 
     def handle_message(self, message):
         if not self.user_logged_in:
@@ -30,6 +31,10 @@ class MessageHandler:
             return self.handle_compras(cleaned_message)
         elif "recomendaciones" in cleaned_message:
             return self.handle_recommendations()
+        elif "historial" in cleaned_message:
+            return self.handle_historial_compras()
+        elif "todos los productos" in cleaned_message:
+            return self.handle_all_products()
         
         for _, response in self.responses.iterrows():
             if self._message_matches(cleaned_message, response):
@@ -85,4 +90,22 @@ class MessageHandler:
         response = "Te recomiendo los siguientes productos:\n"
         for _, row in recomendaciones.iterrows():
             response += f"🔸 {row['nombre']} | 💰 {row['precio']} | {row['etiqueta']}\n"
+        return response
+
+    def handle_historial_compras(self):
+        user_id = self.current_user['id']
+        historial = self.ventas[self.ventas['id_user'] == user_id]
+        if historial.empty:
+            return "No tienes compras registradas."
+        
+        response = "Aquí está tu historial de compras:\n"
+        for i, row in historial.iterrows():
+            response += f"🔸 Producto ID: {row['id_producto']} | Cantidad: {row['cantidad']} | Fecha: {row['fecha']} | Total: {row['total']}\n"
+        return response
+
+    def handle_all_products(self):
+        productos = show_all_products()
+        response = "Aquí están todos los productos:\n"
+        for i, row in productos.iterrows():
+            response += f"🔸 {row['nombre']} | 💰 {row['precio']} | ⭐ {row['puntuacion']}/5\n"
         return response
