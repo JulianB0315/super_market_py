@@ -11,7 +11,7 @@ comida,"No tengo información sobre restaurantes, pero puedes buscar en tu dispo
 edad,"Soy un programa de computadora, no tengo edad.","edad cuantos años tienes",,True
 chiste,"¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.","chiste broma",,True
 musica,"No puedo reproducir música, pero puedes escucharla en tu dispositivo.","musica cancion",,True
-recomendaciones,"Te recomiendo los siguientes productos: Manzana, Pollo, Leche Entera.","recomendaciones,,True
-comprar,"¿Qué producto deseas comprar?","comprar,,True
-ver compras,"Aquí están tus compras recientes: Manzana, Pollo.","ver compras,,True
-salir,"¡Hasta luego!","salir,,True
+recomendaciones,"Te recomiendo los siguientes productos: Manzana, Pollo, Leche Entera.","recomendaciones",,True
+comprar,"¿Qué producto deseas comprar?","comprar",,True
+ver compras,"Aquí están tus compras recientes: Manzana, Pollo.","ver compras",,True
+salir,"¡Hasta luego!","salir",,True
