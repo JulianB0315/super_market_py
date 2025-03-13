@@ -12,6 +12,12 @@ edad,"Soy un programa de computadora, no tengo edad.","edad cuantos años tienes
 chiste,"¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.","chiste broma",,True
 musica,"No puedo reproducir música, pero puedes escucharla en tu dispositivo.","musica cancion",,True
 recomendaciones,"Te recomiendo los siguientes productos: Manzana, Pollo, Leche Entera.","recomendaciones",,True
-comprar,"¿Qué producto deseas comprar?","comprar",,True
+productos,"¿Qué producto deseas comprar?","comprar",,True
 ver compras,"Aquí están tus compras recientes: Manzana, Pollo.","ver compras",,True
 salir,"¡Hasta luego!","salir",,True
+perro,"¡Guau!","perro",,True
+gato,"¡Miau!","gato",,True
+pajaro,"¡Pío pío!","pajaro",,True
+pez,"¡Glub glub!","pez",,True
+cerdo,"¡Oink oink!","cerdo",,True
+vaca,"¡Muuu!","vaca",,True

@@ -27,7 +27,7 @@ class MessageHandler:
             return self.login(message)
         
         cleaned_message = self._clean_message(message)
-        if "compras" in cleaned_message:
+        if "productos de" in cleaned_message:
             return self.handle_compras(cleaned_message)
         elif "recomendaciones" in cleaned_message:
             return self.handle_recommendations()
@@ -67,14 +67,15 @@ class MessageHandler:
         if not user.empty:
             self.user_logged_in = True
             self.current_user = user.iloc[0]
-            return f"Bienvenido {self.current_user['nombres']} {self.current_user['apellidos']}!"
+            greeting = f"Bienvenido {self.current_user['nombres']} {self.current_user['apellidos']}!"
+            return f"{greeting} ¿En qué puedo ayudarte hoy?"
         else:
             return "Credenciales incorrectas. Por favor, intente de nuevo."
 
     def handle_compras(self, message):
         category = message.split("compras", 1)[1].strip()
         if not category:
-            return "Por favor, especifica una categoría. Ejemplo: compras alimentos"
+            return "Por favor, especifica una categoría. Ejemplo: productos de alimentos"
         
         productos_categoria = products_by_categorie(category)
         if productos_categoria is None or productos_categoria.empty:
@@ -83,6 +84,7 @@ class MessageHandler:
         response = f"Productos en la categoría {category}:\n"
         for i, row in productos_categoria.iterrows():
             response += f"🔸 {row['nombre']} | 💰 {row['precio']} | ⭐ {row['puntuacion']}/5\n"
+        response += "\n" + self.response_positive()
         return response
 
     def handle_recommendations(self):
@@ -90,6 +92,7 @@ class MessageHandler:
         response = "Te recomiendo los siguientes productos:\n"
         for _, row in recomendaciones.iterrows():
             response += f"🔸 {row['nombre']} | 💰 {row['precio']} | {row['etiqueta']}\n"
+        response += "\n" + self.response_positive()
         return response
 
     def handle_historial_compras(self):
@@ -101,6 +104,7 @@ class MessageHandler:
         response = "Aquí está tu historial de compras:\n"
         for i, row in historial.iterrows():
             response += f"🔸 Producto ID: {row['id_producto']} | Cantidad: {row['cantidad']} | Fecha: {row['fecha']} | Total: {row['total']}\n"
+        response += "\n" + self.response_positive()
         return response
 
     def handle_all_products(self):
@@ -108,4 +112,5 @@ class MessageHandler:
         response = "Aquí están todos los productos:\n"
         for i, row in productos.iterrows():
             response += f"🔸 {row['nombre']} | 💰 {row['precio']} | ⭐ {row['puntuacion']}/5\n"
+        response += "\n" + self.response_positive()
         return response
