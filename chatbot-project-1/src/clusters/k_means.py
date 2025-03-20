@@ -19,16 +19,15 @@ def preprocess_data(df, caracteristicas=None):
     X_scaled = scaler.fit_transform(X)
     return X_scaled, caracteristicas
 
-def find_optimal_clusters(X_scaled, max_clusters = 10):  # Nombre cambiado
+def find_optimal_clusters(X_scaled, max_clusters = 10):
     inertias = []
     for k in range(1, max_clusters + 1):
         kmeans_model = KMeans(n_clusters=k, random_state=42, n_init=10)
         kmeans_model.fit(X_scaled)
         inertias.append(kmeans_model.inertia_)
-    
-    # Calcular la segunda derivada (cambio en la pendiente)
-    cambios = np.diff(inertias, 2)  # Segunda derivada
-    k_optimo = np.argmin(cambios) + 2  # Sumamos 2 porque el índice inicia en 0
+
+    cambios = np.diff(inertias, 2)  
+    k_optimo = np.argmin(cambios) + 2 
     
     plt.figure(figsize=(10, 6))
     plt.plot(range(1, max_clusters + 1), inertias, marker='o')
@@ -44,19 +43,19 @@ def find_optimal_clusters(X_scaled, max_clusters = 10):  # Nombre cambiado
     print(f'🔹 Número óptimo de clusters seleccionado automáticamente: {k_optimo}')
     return k_optimo
 
-def apply_kmeans(X_scaled, n_clusters):  # Nombre cambiado
+def apply_kmeans(X_scaled, n_clusters):  
     kmeans_model = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
-    cluster_labels = kmeans_model.fit_predict(X_scaled)  # Nombre cambiado
+    cluster_labels = kmeans_model.fit_predict(X_scaled)  
     return cluster_labels, kmeans_model
 
-def view_clusters(X_scaled, cluster_labels, df, kmeans_model):  # Parámetro cambiado
+def view_clusters(X_scaled, cluster_labels, df, kmeans_model): 
     pca = PCA(n_components=2)
     X_pca = pca.fit_transform(X_scaled)
 
     df_plot = pd.DataFrame({
         'PC1': X_pca[:, 0],
         'PC2': X_pca[:, 1],
-        'Cluster': cluster_labels,  # Cambiado
+        'Cluster': cluster_labels, 
         'Producto': df['nombre'],
         'Categoria': df['categoria']
     })
@@ -95,8 +94,8 @@ def view_clusters(X_scaled, cluster_labels, df, kmeans_model):  # Parámetro cam
     plt.show()
     return df_plot
 
-def analizar_clusters(df, cluster_labels):  # Parámetro cambiado
-    df['Cluster'] = cluster_labels  # Cambiado
+def analizar_clusters(df, cluster_labels): 
+    df['Cluster'] = cluster_labels  
 
     resumen_clusters = df.groupby('Cluster').agg({
         'precio': ['mean', 'min', 'max', 'std'],
@@ -113,12 +112,11 @@ def main(path, n_clusters=None):
     X_scaled, caracteristicas = preprocess_data(df)
 
     if n_clusters is None:
-        n_clusters = find_optimal_clusters(X_scaled)  # Nombre cambiado
-        # n_clusters = int(input('Introduce el número de clusters: '))
+        n_clusters = find_optimal_clusters(X_scaled) 
     
-    cluster_labels, kmeans_model = apply_kmeans(X_scaled, n_clusters)  # Nombres cambiados
-    df_plot = view_clusters(X_scaled, cluster_labels, df, kmeans_model)  # Cambiado
-    resumen, categorias_dist = analizar_clusters(df, cluster_labels)  # Cambiado
+    cluster_labels, kmeans_model = apply_kmeans(X_scaled, n_clusters)  
+    df_plot = view_clusters(X_scaled, cluster_labels, df, kmeans_model)  
+    resumen, categorias_dist = analizar_clusters(df, cluster_labels)  
 
     print('Resumen de los Clusters:')
     print(resumen)
@@ -126,10 +124,10 @@ def main(path, n_clusters=None):
     print(categorias_dist)
 
     df_clusters = df.copy()
-    df_clusters['Cluster'] = cluster_labels  # Cambiado
+    df_clusters['Cluster'] = cluster_labels 
     df_clusters.to_csv('clusters.csv', index=False)
 
-    return df_clusters, kmeans_model  # Cambiado
+    return df_clusters, kmeans_model
 
 def run_kmeans_analysis(path, n_clusters):
     pass  
