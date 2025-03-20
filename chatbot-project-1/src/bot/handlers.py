@@ -3,6 +3,14 @@ import random
 import pandas as pd
 from utils.compras import show_categories, products_by_categorie, show_all_products
 from model.recommendations import RecommendationModel
+from clusters.ClusteringJerarquico import display_dendrogram, calculate_category_averages  
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from clusters.k_means import cargar_datos, preprocess_data, find_optimal_clusters, apply_kmeans, view_clusters, analizar_clusters
 
 class MessageHandler:
     def __init__(self, csv_file='chatbot-project-1/src/bot/responses.csv'):
@@ -35,6 +43,10 @@ class MessageHandler:
             return self.handle_historial_compras()
         elif "muestra todo" in cleaned_message:
             return self.handle_all_products()
+        elif "analisis cluster" in cleaned_message:
+            return self.handle_cluster_analysis()
+        elif "analisis kmeans" in cleaned_message:
+            return self.handle_kmeans_analysis()
         
         for _, response in self.responses.iterrows():
             if self._message_matches(cleaned_message, response):
@@ -73,7 +85,7 @@ class MessageHandler:
             return "Credenciales incorrectas. Por favor, intente de nuevo."
 
     def handle_compras(self, message):
-        category = message.split("compras", 1)[1].strip()
+        category = message.split("quiero", 1)[1].strip()
         if not category:
             return "Por favor, especifica una categoría. Ejemplo: quiere alimentos"
         
@@ -114,3 +126,33 @@ class MessageHandler:
             response += f"🔸 {row['nombre']} | 💰 {row['precio']} | ⭐ {row['puntuacion']}/5\n"
         response += "\n" + self.response_positive()
         return response
+
+    def handle_cluster_analysis(self):
+        try:
+            averages = calculate_category_averages()  # Get the averages
+            response = "Promedios por categoría:\n"
+            for _, row in averages.iterrows():
+                response += f"🔸 {row['categoria']} | Precio Promedio: {row['Precio Promedio']:.2f} | Descuento Promedio: {row['Descuento Promedio']:.2f} | Popularidad Promedio: {row['Popularidad Promedio']:.2f}\n"
+            response += "\n" + "Generando el dendrograma...\n"
+            display_dendrogram()  
+            return response + "El análisis de clustering jerárquico se ha generado y se muestra en una ventana."
+        except Exception as e:
+            return f"Hubo un error al generar el análisis de clustering: {str(e)}"
+
+    def handle_kmeans_analysis(self):
+        try:
+            df = cargar_datos('chatbot-project-1/src/data/productos.csv')
+            X_scaled, features = preprocess_data(df)
+            k_optimo = find_optimal_clusters(X_scaled)
+            cluster_labels, kmeans_model = apply_kmeans(X_scaled, k_optimo)
+            view_clusters(X_scaled, cluster_labels, df, kmeans_model)
+            resumen_clusters, categorias_per_cluster = analizar_clusters(df, cluster_labels)
+            df['Cluster'] = cluster_labels
+            df.to_csv('clusters.csv', index=False)
+            response = "Análisis K-Means completado.\n\nResumen de los Clusters:\n"
+            response += resumen_clusters.to_string() + "\n\n"
+            response += "Distribución de Categorías por Cluster:\n"
+            response += categorias_per_cluster.to_string()
+            return response
+        except Exception as e:
+            return f"Hubo un error al realizar el análisis K-Means: {str(e)}"
