@@ -146,13 +146,9 @@ class MessageHandler:
             k_optimo = find_optimal_clusters(X_scaled)
             cluster_labels, kmeans_model = apply_kmeans(X_scaled, k_optimo)
             view_clusters(X_scaled, cluster_labels, df, kmeans_model)
-            resumen_clusters, categorias_per_cluster = analizar_clusters(df, cluster_labels)
+            analizar_clusters(df, cluster_labels)
             df['Cluster'] = cluster_labels
             df.to_csv('clusters.csv', index=False)
-            response = "Análisis K-Means completado.\n\nResumen de los Clusters:\n"
-            response += resumen_clusters.to_string() + "\n\n"
-            response += "Distribución de Categorías por Cluster:\n"
-            response += categorias_per_cluster.to_string()
-            return response
+            return "Análisis K-Means completado y gráficos generados."
         except Exception as e:
             return f"Hubo un error al realizar el análisis K-Means: {str(e)}"
