@@ -27,13 +27,13 @@ class MessageHandler:
             return self.login(message)
         
         cleaned_message = self._clean_message(message)
-        if "productos de" in cleaned_message:
+        if "quiero" in cleaned_message:
             return self.handle_compras(cleaned_message)
         elif "recomendaciones" in cleaned_message:
             return self.handle_recommendations()
         elif "historial" in cleaned_message:
             return self.handle_historial_compras()
-        elif "todos los productos" in cleaned_message:
+        elif "muestra todo" in cleaned_message:
             return self.handle_all_products()
         
         for _, response in self.responses.iterrows():
@@ -75,7 +75,7 @@ class MessageHandler:
     def handle_compras(self, message):
         category = message.split("compras", 1)[1].strip()
         if not category:
-            return "Por favor, especifica una categoría. Ejemplo: productos de alimentos"
+            return "Por favor, especifica una categoría. Ejemplo: quiere alimentos"
         
         productos_categoria = products_by_categorie(category)
         if productos_categoria is None or productos_categoria.empty:
