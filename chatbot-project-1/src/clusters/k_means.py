@@ -131,6 +131,5 @@ def main(path, n_clusters=None):
 
     return df_clusters, kmeans_model  # Cambiado
 
-if __name__ == '__main__':
-    path = 'chatbot-project-1/src/data/productos.csv'
-    resultado, model = main(path)
+def run_kmeans_analysis(path, n_clusters):
+    pass  
