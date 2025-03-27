@@ -45,4 +45,5 @@ def display_dendrogram():
     plt.xlabel("Categorías")
     plt.ylabel("Distancia")
     plt.show()
-display_dendrogram()
+if __name__ == '__main__':
+    display_dendrogram()

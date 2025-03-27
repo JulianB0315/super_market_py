@@ -43,7 +43,7 @@ class MessageHandler:
             return self.handle_historial_compras()
         elif "muestra todo" in cleaned_message:
             return self.handle_all_products()
-        elif "analisis cluster" in cleaned_message:
+        elif "analisis jerargico" in cleaned_message:
             return self.handle_cluster_analysis()
         elif "analisis kmeans" in cleaned_message:
             return self.handle_kmeans_analysis()

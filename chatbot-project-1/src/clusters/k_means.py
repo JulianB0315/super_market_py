@@ -131,4 +131,5 @@ def main(path, n_clusters=None):
 
 def run_kmeans_analysis(path, n_clusters):
     pass  
-main('chatbot-project-1/src/data/productos.csv')
+if __name__ == '__main__':
+    main('chatbot-project-1/src/data/productos.csv')
