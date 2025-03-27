@@ -129,7 +129,7 @@ class MessageHandler:
 
     def handle_cluster_analysis(self):
         try:
-            averages = calculate_category_averages()  # Get the averages
+            averages = calculate_category_averages() 
             response = "Promedios por categoría:\n"
             for _, row in averages.iterrows():
                 response += f"🔸 {row['categoria']} | Precio Promedio: {row['Precio Promedio']:.2f} | Descuento Promedio: {row['Descuento Promedio']:.2f} | Popularidad Promedio: {row['Popularidad Promedio']:.2f}\n"
